@@ -1,0 +1,24 @@
+{
+  "name": "jambrie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "run-p dev:*",
+    "dev:wrangler": "wrangler pages dev dist --live-reload",
+    "dev:esbuild": "esbuild --bundle src/server.js --format=esm --watch --outfile=dist/_worker.js",
+    "build": "esbuild --bundle src/index.ts --format=esm --outfile=dist/_worker.js",
+    "deploy": "wrangler pages publish dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hono": "^2.6.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20221111.1",
+    "typescript": "^4.9.4",
+    "wrangler": "^2.6.2"
+  }
+}
